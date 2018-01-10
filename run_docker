@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#docker \
+#  run \
+#  --detach \
+#  --env MYSQL_ROOT_PASSWORD=derp \
+#  --env MYSQL_USER=foo \
+#  --env MYSQL_PASSWORD=bar \
+#  --env MYSQL_DATABASE=clas12 \
+#  --name clas12_database \
+#  --publish 3306:3306 \
+#  mysql:latest
+
+docker run --name clas12_db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=derp  -e MYSQL_USER=test -e MYSQL_PASSWORD=test mysql:latest
