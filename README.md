@@ -3,7 +3,14 @@ CLAS12 data monitoring tools
 
 # Quick start
 
-1. Run docker mysql server
+1. Install docker
+2. Run: `bash run_docker`
+3. `cd rest_api_server && npm install`
+4. `npm start`
+5. Open http://localhost:3000/api/crud/RunValues in browser
+6. ...
+7. Profit!
+
 
 ## Front-end requirements:
 

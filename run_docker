@@ -24,6 +24,6 @@ echo "Sleeping for 15s while database initializes"
 sleep 15s
 
 echo "Running detached mysql container"
-mysql -h 127.0.0.1 -P 3306 -uroot -p < make_user.sql
-mysql -h 127.0.0.1 -P 3306 -uroot -p < make_run_entry_table.sql
-mysql -h 127.0.0.1 -P 3306 -uroot -p < fake_run_values.sql
+mysql -h 127.0.0.1 -P 3306 -uroot -pderp < make_user.sql
+mysql -h 127.0.0.1 -P 3306 -uroot -pderp < make_run_entry_table.sql
+mysql -h 127.0.0.1 -P 3306 -uroot -pderp < fake_run_values.sql
