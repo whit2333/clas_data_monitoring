@@ -11,4 +11,19 @@
 #  --publish 3306:3306 \
 #  mysql:latest
 
-docker run --name clas12_db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=derp  -e MYSQL_USER=test -e MYSQL_PASSWORD=test mysql:latest
+docker pull mysql
+
+echo "Running detached mysql container"
+docker run --name clas12_db -p 3306:3306 -e MYSQL_ROOT_PASSWORD=derp  -e MYSQL_USER=test -e MYSQL_PASSWORD=test -d mysql:latest
+
+#Let  database initialize
+
+echo "To stop   the database container : \"docker stop clas12_db\""
+echo "To delete the database delete the stopped container : \"docker rm clas12_db\""
+echo "Sleeping for 15s while database initializes"
+sleep 15s
+
+echo "Running detached mysql container"
+mysql -h 127.0.0.1 -P 3306 -uroot -p < make_user.sql
+mysql -h 127.0.0.1 -P 3306 -uroot -p < make_run_entry_table.sql
+mysql -h 127.0.0.1 -P 3306 -uroot -p < fake_run_values.sql

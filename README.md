@@ -1,6 +1,9 @@
 CLAS12 data monitoring tools
 ============================
 
+# Quick start
+
+1. Run docker mysql server
 
 ## Front-end requirements:
 

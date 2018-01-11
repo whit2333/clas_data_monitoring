@@ -1,11 +1,11 @@
--- CREATE USER 'clas12'@'localhost' IDENTIFIED BY 'clas12';
--- 
--- GRANT ALL PRIVILEGES ON base.* TO 'clas12'@'localhost' IDENTIFIED BY 'clas12';
--- GRANT SELECT, INSERT, DELETE ON base.* TO 'clas12'@'localhost' IDENTIFIED BY 'clas12';
--- -- --REVOKE ALL PRIVILEGES ON base.* FROM 'clas12'@'host'; -- one permission only
--- -- --REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'clas12'@'host'; -- all permissions
--- 
--- CREATE DATABASE IF NOT EXISTS rundb ;
+CREATE USER 'clas12'@'localhost' IDENTIFIED BY 'clas12';
+
+GRANT ALL PRIVILEGES ON base.* TO 'clas12'@'localhost' IDENTIFIED BY 'clas12';
+GRANT SELECT, INSERT, DELETE ON base.* TO 'clas12'@'localhost' IDENTIFIED BY 'clas12';
+-- --REVOKE ALL PRIVILEGES ON base.* FROM 'clas12'@'host'; -- one permission only
+-- --REVOKE ALL PRIVILEGES, GRANT OPTION FROM 'clas12'@'host'; -- all permissions
+
+CREATE DATABASE IF NOT EXISTS rundb ;
 
 USE rundb;
 

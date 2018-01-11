@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+<div class="ct-chart" id="chart1"></div>
+
+<p id="demo"></p>
+ <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+
+<script>
+fetch('http://localhost:3000/api/crud/RunValues?_fieldname=bpm1&_fields=run,value')
+.then(response => response.json())
+.then(data => {
+    document.getElementById("demo").innerHTML = JSON.stringify(data.json);
+    // Do what you want with your data
+    xvals = data.json.map(function(xypoint) {
+      return xypoint.run;
+    });
+    yvals = data.json.map(function(xypoint) {
+      return xypoint.value;
+    });
+    var trace1 = {
+      x: xvals, 
+      y: yvals, 
+      type: 'scatter'
+    };
+    var trace2 = {
+      x: [1, 2, 3, 4], 
+      y: [16, 5, 11, 9], 
+      type: 'scatter'
+    };
+    var data = [trace1];
+    Plotly.newPlot('myDiv', data);
+})
+.catch(err => {
+  console.error('An error ocurred', err);
+});
+
+
+</script>
+
+  <script>
+    <!-- JAVASCRIPT CODE GOES HERE -->
+  </script>
+<script>
+// As options we currently only set a static size of 300x200 px. We can also omit this and use aspect ratio containers
+// as you saw in the previous example
+var options = {
+  width: 300,
+  height: 200
+};
+
+// Initialize a Line chart in the container with the ID chart1
+new Chartist.Line('#chart1', {
+  labels: [1, 2, 3, 4],
+  series: [[100, 120, 180, 200]]
+}, options);
+
+// Initialize a Line chart in the container with the ID chart2
+  new Chartist.Bar('#chart2', {
+    labels: [1, 2, 3, 4],
+    series: [[5, 2, 8, 3]]
+  });
+</script>
+  </body>
+</html>
